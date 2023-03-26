@@ -1,0 +1,21 @@
+dialog.modal#deleteModal
+  div.modal-form
+    form(action="/items/delete" method="POST")
+      div.delete-title
+        h2 Are you sure you want to delete this product?
+      div.separator
+      div.top
+        div.hero
+          label(for="delete-file-input")
+            img.placeholder#deleteImage(src='/images/placeholder.png' alt='Placeholder image' width="150" height="150")
+          input.modalImage(type="file" name="deleteImage" id="delete-file-input" readonly)
+        div.column-right
+          label Brand
+          input#deleteBrand(type="text" name="deleteBrand" placeholder="Brand" readonly)
+          label Name
+          input#deleteName(type="text" name="deleteName" placeholder="Name" readonly)
+      div.bottom
+        div.buttons.full
+          input(type="submit" class="btn btn-primary confirm" value="Confirm")
+          button#cancelBtn(type="button" class="btn btn-primary cancel") Cancel
+          input(type="hidden" id="idToRemove" name="idToRemove")

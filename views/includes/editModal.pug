@@ -1,0 +1,28 @@
+dialog.modal#editModal
+  div.modal-form
+    form(action="/items/edit" enctype="multipart/form-data" method="POST")
+      div.modal-title
+        h2 Edit a product
+      div.separator
+      div.top
+        div.hero
+          label(for="edit-file-input")
+            img.placeholder#editImage(src='/images/placeholder.png' alt='Placeholder image' width="150" height="150")
+          input.modalImage(type="file" name="editImage" id="edit-file-input")
+        div.column-right
+          label SKU
+          input#editSku(type="number" name="editSku" placeholder="SKU" readonly)
+          label Price
+          input#editPrice(type="number" step="0.01" name="editPrice" placeholder="Price")
+      div.bottom
+        label Brand
+        input#editBrand(type="text" name="editBrand" placeholder="Brand")
+        label Name
+        input#editName(type="text" name="editName" placeholder="Name")
+        div.full
+        label Description
+        textarea#editDescription(name="editDescription" cols="20" rows="10")
+        div.buttons
+          input(type="submit" class="btn btn-primary confirm" value="Confirm")
+          button#cancelBtn(type="button" class="btn btn-primary cancel") Cancel
+          input(type="hidden" id="idToEdit" name="idToEdit")

@@ -1,0 +1,13 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/css/styles.css")
+    script(src="/javascript/items.js" defer)
+    script(src="https://kit.fontawesome.com/19aa2c559e.js" crossorigin="anonymous")
+body
+    .container
+      include ../includes/header.pug
+      .content
+        block content
+      include ../includes/footer.pug

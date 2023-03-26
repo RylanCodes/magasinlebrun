@@ -1,0 +1,37 @@
+extends layouts/main
+block content
+    div#sale
+      form.center.form-control#top(method="POST", name="form-control")
+        input(list="items", id="products", name="products", placeholder="Please select a product")
+        datalist(id="items")
+          each item in items
+            option(value= item.sku) #{item.sku + " " + item.name}
+        input.form-control(type="number" placeholder="Quantity" name="quantity" min=1 value=1)
+        input.form-control(type="submit" class="btn btn-primary" value="Add")
+      table.table.table-dark.center
+        thead
+          tr
+            th SKU
+            th Qty 
+            th Name 
+            th Price 
+            th Total 
+            th Image
+            th 
+        tbody
+          each line in lines
+            include includes/line
+      div.bottom
+        form(action="/sale/close" method="POST", name="")
+            div.amount
+              div.title
+                p Subtotal:
+                p GST:
+                p QST:
+                p Total:
+              div.values
+                p= result.subtotal.toFixed(2) + " $"
+                p= result.gst + " $"
+                p= result.qst + " $"
+                p= (result.finalAmount).toFixed(2) + " $"
+            input.btn.btn-primary(type="submit" value="Conclude Sale" disabled=!lines.length)

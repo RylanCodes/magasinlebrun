@@ -1,0 +1,497 @@
+:root {
+  --accent-color: #5f27cd;
+  --accent-color-hover: #5f27cd;
+  --primary-color: #341f97dd;
+  --disabled-color: #2e86de;
+  --dark-color: #222f3e;
+  --light-color: #ddd;
+  --danger-color: #ff6b6b;
+  --content-color: #c8d6e5dd;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  height: 100vh;
+  filter: grayscale();
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background: center center / cover url(../images/background.png) no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: "Limelight", cursive;
+  margin: 2rem;
+  color: var(--light-color);
+  text-shadow: 2px 2px 4px var(--dark-color);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+.content {
+  flex: 1;
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+header {
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--light-color);
+}
+
+header ul li a {
+  color: var(--light-color);
+  text-decoration: none;
+}
+
+header ul li a:hover {
+  color: var(--content-color);
+}
+
+header ul {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: flex-end;
+  list-style-type: none;
+}
+
+header ul li {
+  padding: 1rem;
+}
+
+.ml-1 {
+  /* margin-left: 0.3rem; */
+  margin-left: 0.5rem;
+}
+
+input {
+  border-radius: 0.3rem;
+  /* padding: 0.3rem; */
+  padding: 0.7rem;
+}
+
+input[list="items"] {
+  flex: 0 1 auto;
+  /* width: 28rem; */
+  width: 76rem;
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  margin-right: 7px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-top: 1px solid var(--light-color);
+}
+
+footer p {
+  color: var(--light-color);
+  padding: 1rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.form-control {
+  border: 1px solid var(--dark-color);
+  border-radius: 6px;
+  padding: 0.7rem;
+  margin: 0.3rem;
+}
+
+.btn {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 0.7rem;
+  padding-inline: 1rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #eee;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+}
+
+td,
+i {
+  color: var(--dark-color);
+}
+
+.fas,
+.far {
+  padding: 0.5rem;
+}
+
+.fa-pen-to-square,
+.fa-trash-can,
+.fa-square-plus {
+  cursor: pointer;
+}
+
+.fa-square-plus {
+  color: var(--light-color);
+}
+
+.fa-square-plus:hover,
+.fa-trash-can:hover {
+  color: var(--danger-color);
+}
+
+.fa-pen-to-square:hover {
+  color: var(--accent-color-hover);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+#sale {
+  display: grid;
+  grid:
+    "form form form form" auto
+    "table table table table" 1fr
+    ". . . bottom" minmax(min-content, max-content)
+    / 1fr 1fr minmax(min-content, max-content);
+}
+
+#top {
+  margin-bottom: 0.5rem;
+  grid-area: form;
+  background-color: var(--primary-color);
+}
+
+#line-form {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0.3rem;
+}
+
+#line-form div {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  flex: 1 1 auto;
+  padding: 0.3rem;
+  font-weight: 700;
+  color: red;
+}
+
+.message-box {
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0rem 1rem;
+  border-collapse: collapse;
+  grid-area: table;
+}
+
+.amount {
+  margin-top: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  text-align: right;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.title,
+.values {
+  padding: 0.5rem;
+}
+/* this causes issues with product form */
+/* .table tr > *:nth-child(1) {
+  width: 3rem;
+}
+.table tr > *:nth-child(2) {
+  width: 1rem;
+}
+.table tr > *:nth-child(3) {
+  width: 10rem;
+}
+.table tr > *:nth-child(4) {
+  width: 1.5rem;
+}
+.table tr > *:nth-child(5) {
+  width: 1.5rem;
+}
+.table tr > *:nth-child(6) {
+  width: 1.5rem;
+}
+.table tr > *:nth-child(7) {
+  width: 1.5rem;
+} */
+
+.table thead tr th {
+  padding: 1.2rem;
+}
+
+.table-dark {
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  font-weight: bold;
+  color: #fff;
+}
+
+.table tbody tr td {
+  border-bottom: 1px solid var(--dark-color);
+  background-color: var(--content-color);
+  padding: 0.4rem;
+}
+
+.table-right {
+  text-align: right;
+}
+
+.table-center {
+  text-align: center;
+}
+
+.item-picture {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--light-color);
+  box-shadow: 1px 1px 4px var(--dark-color);
+  margin: 0.25rem;
+}
+
+.bottom {
+  display: flex;
+  grid-area: bottom;
+  flex-direction: column;
+}
+
+.amount p {
+  padding: 0.3rem;
+}
+
+.amount p {
+  padding: 0.3rem;
+}
+
+.amount .title p:nth-child(3) {
+  margin-bottom: 0.4rem;
+}
+
+.amount .values p:nth-child(3) {
+  margin-top: 0.2rem;
+  border-bottom: 1px solid var(--light-color);
+  margin-bottom: 0.2rem;
+}
+
+.amount .title p:nth-child(4) {
+  font-weight: bold;
+}
+
+.amount .values p:nth-child(4) {
+  font-weight: bold;
+}
+
+.bottom form input {
+  width: 100%;
+}
+
+.dropdown {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  text-align: right;
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.351);
+  padding: 1rem 0;
+  margin-top: 3rem;
+}
+
+#itemsDropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 2rem;
+  padding-right: 2rem;
+}
+
+.dropdownMenu {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.dropdownMenu option {
+  background-color: var(--primary-color);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-block: 1.5rem;
+}
+
+.pagination-container ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.pagination-container ul li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+a.btn {
+  text-decoration-line: none;
+}
+
+.active {
+  background-color: var(--accent-color);
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.fa-backward-step,
+.fa-backward,
+.fa-forward,
+.fa-forward-step {
+  color: var(--light-color);
+}
+
+html:has(:modal) {
+  overflow: hidden;
+}
+
+.modal {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  opacity: 1;
+  border: 0;
+  margin: auto;
+  padding: 1em;
+  max-width: 50ch;
+  overflow-y: hidden;
+  box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+.modal-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+.delete-title h2 {
+  max-width: 25ch;
+  text-align: center;
+}
+
+.separator {
+  width: 100%;
+  min-height: 0.05rem;
+  margin: 0.25rem 0 0.75rem 0;
+  background-color: var(--light-color);
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.hero,
+.column-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-form input,
+.modal-form textarea {
+  border-radius: 6px;
+}
+
+.modal-form label {
+  margin: 0.5rem 0 0.25rem 0.25rem;
+}
+
+.full {
+  grid-column: 1/-1;
+}
+
+.confirm,
+.cancel {
+  background-color: var(--primary-color);
+}
+
+.confirm:hover,
+.cancel:hover {
+  background-color: var(--accent-color);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+#cancelBtn {
+  margin-left: 0.3rem;
+}
+
+.errorMessage {
+  color: var(--danger-color);
+  padding-block: 0.5rem;
+  text-align: center;
+}
+
+.modalImage,
+.hidden,
+.errorMessage:empty {
+  display: none;
+}

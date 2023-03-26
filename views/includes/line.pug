@@ -1,0 +1,11 @@
+tr
+  td= line.sku
+  td= line.qty
+  td= line.name
+  td #{line.sale_price.toFixed(2)} $
+  td #{line.amount.toFixed(2)} $
+  td
+    img.item-picture(src=`${line.image_url}`)
+  td
+    i.fa-solid.fa-pen-to-square.fas
+    i.fa-regular.fa-trash-can.far

@@ -1,0 +1,10 @@
+tr(id=`SKU${item.sku}`)
+  td#image
+    img.item-picture(src=item.image_url != '' ? item.image_url : 'images/placeholder.png')
+  td#sku= item.sku
+  td#brand= item.brand
+  td#name= item.name
+  td#price #{item.sale_price.toFixed(2)} $
+  td
+    i(class="fas fa-solid fa-pen-to-square openEditBtn" id="editButtons" onclick=`editItem(${JSON.stringify(item)})`)
+    i(class="far fa-regular fa-trash-can openDeleteBtn" id="deleteButtons" onclick=`deleteItem(${JSON.stringify(item)})`)

@@ -1,0 +1,54 @@
+extends layouts/main
+block content
+    div
+      table.table.table-dark.center
+        thead.table-dark
+          tr
+            div.dropdown
+              form#dropdownSelectionMenu(method="POST" action="/items/sortby")
+                label(id="itemsDropdown") Show 
+                  select#dropdownSelection(class="dropdownMenu" name="sortBy" onchange="dropdownSelectionMenu.submit()")
+                    option(value="10" selected=(sortBy == 10)) 10 items per page
+                    option(value="50" selected=(sortBy == 50)) 50 items per page
+                    option(value="100" selected=(sortBy == 100)) 100 items per page
+                    option(value=totalItems selected=(sortBy == totalItems)) All items
+          tr
+            th Image
+            th SKU
+            th Brand
+            th Item
+            th Price
+            th
+              i.fa-solid.fa-square-plus#open-btn
+        tbody
+          each item in items
+            include includes/itemLine
+      div.pagination-container
+        if pageCount > 1
+          ul.pagination
+            li
+              if currentPage == 1
+                i.fa-solid.fa-backward-step.btn.disabled
+                i.fa-solid.fa-backward.btn.disabled
+              else
+                a.fa-solid.fa-backward-step(href="1" class='btn')
+                a.fa-solid.fa-backward(href=(currentPage-1) class='btn')
+              //- -const leftPadding = (currentPage - 3 <= 0 ) ? 1 : currentPage - 3
+              -for(let leftPage = currentPage-3; leftPage < currentPage; leftPage++)
+                if(leftPage > 0)
+                  a(href=leftPage class="btn")=leftPage
+              a.active(href=+currentPage class="btn")=currentPage    
+              //- -const rightPadding = (currentPage + 3 <= 0 ) ? 1 : currentPage + 3
+              -for(let rightPage = +currentPage+1; rightPage < +currentPage + 4; rightPage++)
+                if(rightPage <= pageCount)
+                  a(href=rightPage class="btn")=rightPage
+              if currentPage == pageCount
+                i.fa-solid.fa-forward-step.btn.disabled
+                i.fa-solid.fa-forward.btn.disabled
+              else
+                a.fa-solid.fa-forward(href=(+currentPage+1) class='btn')
+                a.fa-solid.fa-forward-step(href=pageCount class='btn')
+    div
+    include includes/addModal
+    include includes/editModal
+    include includes/deleteModal
